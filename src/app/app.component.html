@@ -1,0 +1,22 @@
+<h1 style="text-align: center;">Grocery List</h1>
+<br>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-3">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Enter a Grocery" aria-label="Enter Grocery"
+          aria-describedby="button-addon2" [(ngModel)]="newGrocery">
+        <button class="btn btn-outline-secondary btn-primary" type="button" id="button-addon2" style="color: white;"
+          (click)="saveGrocery()">Add</button>
+      </div>
+      <table class="table table-striped">
+        <tbody>
+          <tr *ngFor="let grocery of groceries; let i = index;">
+            <th scope="row">{{i+1}}</th>
+            <td class="{{(!grocery.isCompleted)?'done':''}}" (click)="done(i)">{{grocery.name}}</td>
+            <td class="x" style="color: red; font-weight: bold;" (click)="remove(i)">X</td>
+          </tr>
+      </table>
+    </div>
+  </div>
+</div>
